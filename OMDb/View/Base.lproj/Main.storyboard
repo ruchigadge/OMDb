@@ -172,7 +172,7 @@
                                                                 <constraint firstAttribute="width" constant="54" id="V9W-SQ-OQO"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XN-gk-kBc">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XN-gk-kBc">
                                                             <rect key="frame" x="76" y="8" width="314" height="21"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                             <color key="textColor" red="0.20392156859999999" green="0.1843137255" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -195,6 +195,7 @@
                                                         <constraint firstItem="VFX-j3-PQk" firstAttribute="leading" secondItem="utU-tj-LjH" secondAttribute="trailing" constant="14" id="0kV-4c-OJu"/>
                                                         <constraint firstItem="VFX-j3-PQk" firstAttribute="top" secondItem="5XN-gk-kBc" secondAttribute="bottom" constant="8" id="7l8-HJ-Gnz"/>
                                                         <constraint firstAttribute="trailing" secondItem="5XN-gk-kBc" secondAttribute="trailing" constant="8" id="H3m-4O-C7g"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VFX-j3-PQk" secondAttribute="bottom" constant="8" id="i6y-Ji-djn"/>
                                                         <constraint firstItem="utU-tj-LjH" firstAttribute="leading" secondItem="OPE-7i-zGh" secondAttribute="leading" constant="8" id="rPU-jr-0Qx"/>
                                                         <constraint firstItem="utU-tj-LjH" firstAttribute="top" secondItem="OPE-7i-zGh" secondAttribute="top" constant="8" id="tvv-6t-qK0"/>
                                                         <constraint firstItem="5XN-gk-kBc" firstAttribute="leading" secondItem="utU-tj-LjH" secondAttribute="trailing" constant="14" id="yFr-K8-Xdf"/>
