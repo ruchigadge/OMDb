@@ -14,7 +14,7 @@ import SwiftyJSON
 let BASE_URL = "http://www.omdbapi.com"
 let API_KEY = "8af44a12"
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
@@ -23,8 +23,11 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchTextField.delegate = self
         searchButton.layer.cornerRadius = 5.0
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.DismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     
@@ -64,8 +67,35 @@ class SearchViewController: UIViewController {
         }
     }
     
+    //MARK: - Dismiss Keyboard
+    @objc func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    //MARK: - Move view when keyboard appears/disappears
+    func animateViewMoving (_ up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0,  dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        animateViewMoving(true, moveValue: 100)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        animateViewMoving(false, moveValue: 100)
+    }
+    
     //MARK: - Search Button Pressed
     @IBAction func searchPressed(_ sender: Any) {
+        
+        DismissKeyboard()
         
         if (searchTextField.text?.isEmpty)! {
             let alert = UIAlertController(title: "", message: "Please enter a title to search.", preferredStyle: .alert)
@@ -82,8 +112,7 @@ class SearchViewController: UIViewController {
                 let hideAlert = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 alert.addAction(hideAlert)
                 self.present(alert, animated: true, completion: nil)
-            }
-            
+            }            
         }        
     }
     

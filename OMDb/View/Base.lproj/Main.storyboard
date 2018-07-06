@@ -34,7 +34,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OMDB" translatesAutoresizingMaskIntoConstraints="NO" id="BgY-Rx-wLK">
                                         <rect key="frame" x="102" y="0.0" width="135" height="49"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Movie" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DbT-Jq-jZ6" customClass="CustomTextField" customModule="OMDb" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Movie" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DbT-Jq-jZ6" customClass="CustomTextField" customModule="OMDb" customModuleProvider="target">
                                         <rect key="frame" x="2" y="72" width="335" height="47"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -42,7 +42,7 @@
                                             <constraint firstAttribute="height" constant="47" id="qLo-Un-SRZ"/>
                                         </constraints>
                                         <color key="textColor" white="0.96260905100000005" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="tintCol">
