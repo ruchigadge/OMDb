@@ -21,7 +21,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(imdbId)
         detailsTableView.delegate = self
         detailsTableView.dataSource = self
         
@@ -34,7 +33,18 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             alert.addAction(hideAlert)
             self.present(alert, animated: true, completion: nil)
         }
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(DetailsViewController.refresh(_:)), for: .valueChanged)
+        self.detailsTableView!.addSubview(refreshControl)
     }
+    
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        let params : [String:String] = ["apikey": API_KEY,"i": imdbId]
+        getDetails(url: BASE_URL, parameters: params)
+        refreshControl.endRefreshing()
+    }
+
     
     //MARK:- Tableview Datasource Methods
     
@@ -127,14 +137,13 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             if response.result.isSuccess {
                 UIViewController.removeSpinner(spinner: sv)
                 let detailJSON = JSON(response.result.value as Any)
-                print(detailJSON)
                 if let tempResult = detailJSON.dictionaryObject {
                     self.detailsDictionary = tempResult as NSDictionary
                     self.detailsTableView.reloadData()
                 }
             }else{
                 UIViewController.removeSpinner(spinner: sv)
-                print("Error \(String(describing: response.result.error))")
+//                print("Error \(String(describing: response.result.error))")
             }
         }
     }
@@ -160,6 +169,7 @@ extension UIViewController {
     }
     
     class func removeSpinner(spinner :UIView) {
+
         DispatchQueue.main.async {
             spinner.removeFromSuperview()
         }

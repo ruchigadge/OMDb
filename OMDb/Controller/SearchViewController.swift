@@ -37,7 +37,6 @@ class SearchViewController: UIViewController {
             if response.result.isSuccess {
                 UIViewController.removeSpinner(spinner: sv)
                 let movieListJSON = JSON(response.result.value as Any)
-                print(movieListJSON)
                 if let tempResult = movieListJSON["Search"].arrayObject {
                     self.itemList = tempResult as NSArray
                 }
@@ -60,13 +59,12 @@ class SearchViewController: UIViewController {
                 let hideAlert = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 alert.addAction(hideAlert)
                 self.present(alert, animated: true, completion: nil)
-                print("Error \(String(describing: response.result.error))")
+//                print("Error \(String(describing: response.result.error))")
             }
         }
     }
     
     //MARK: - Search Button Pressed
-    
     @IBAction func searchPressed(_ sender: Any) {
         
         if (searchTextField.text?.isEmpty)! {
@@ -85,8 +83,10 @@ class SearchViewController: UIViewController {
                 alert.addAction(hideAlert)
                 self.present(alert, animated: true, completion: nil)
             }
+            
         }        
     }
     
+
 }
 

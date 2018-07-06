@@ -23,7 +23,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         listView.delegate = self
         listView.dataSource = self
         listView.backgroundColor = UIColor(red: 52/255, green: 47/255, blue: 86/255, alpha: 1)
-        print("Hello \(itemList)")
         listView.reloadData()
     }
 
