@@ -12,10 +12,14 @@
 		0A28635720DE4B6D00EEAA02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A28635520DE4B6D00EEAA02 /* Main.storyboard */; };
 		0A28635920DE4B7200EEAA02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A28635820DE4B7200EEAA02 /* Assets.xcassets */; };
 		0A28635C20DE4B7200EEAA02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A28635A20DE4B7200EEAA02 /* LaunchScreen.storyboard */; };
+		0AA8326D20EF3EF6005472E0 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8326C20EF3EF6005472E0 /* Connectivity.swift */; };
 		0AAC720820E93BE600EC36A9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC720720E93BE600EC36A9 /* ListViewController.swift */; };
 		0AAC720A20E93BF700EC36A9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC720920E93BF700EC36A9 /* DetailsViewController.swift */; };
 		0AAC720D20E9ED4700EC36A9 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC720C20E9ED4700EC36A9 /* ListTableViewCell.swift */; };
 		0AAC720F20EB7E4000EC36A9 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC720E20EB7E4000EC36A9 /* DetailsTableViewCell.swift */; };
+		0AAC721420EE08BC00EC36A9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC721320EE08BC00EC36A9 /* CustomTextField.swift */; };
+		0AAC721920EF365000EC36A9 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AAC721720EF364E00EC36A9 /* Montserrat-Bold.ttf */; };
+		0AAC721A20EF365000EC36A9 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AAC721820EF364F00EC36A9 /* Montserrat-Regular.ttf */; };
 		B7487AE99ABD62961750D9B9 /* Pods_OMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACA4C99D99B221D193B1C7F /* Pods_OMDb.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,12 +31,14 @@
 		0A28635820DE4B7200EEAA02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A28635B20DE4B7200EEAA02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A28635D20DE4B7200EEAA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A28636320DF55A500EEAA02 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		0A28636420DF55A500EEAA02 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		0AA8326C20EF3EF6005472E0 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		0AAC720720E93BE600EC36A9 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0AAC720920E93BF700EC36A9 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		0AAC720C20E9ED4700EC36A9 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		0AAC720E20EB7E4000EC36A9 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		0AAC721320EE08BC00EC36A9 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = OMDb/Utilities/CustomTextField.swift; sourceTree = SOURCE_ROOT; };
+		0AAC721720EF364E00EC36A9 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		0AAC721820EF364F00EC36A9 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		1548C999AE7EB7BACA4D45E9 /* Pods-OMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMDb.release.xcconfig"; path = "Pods/Target Support Files/Pods-OMDb/Pods-OMDb.release.xcconfig"; sourceTree = "<group>"; };
 		4B635113BEB8F2FC6799A554 /* Pods-OMDb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMDb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OMDb/Pods-OMDb.debug.xcconfig"; sourceTree = "<group>"; };
 		BACA4C99D99B221D193B1C7F /* Pods_OMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				0A28635020DE4B6C00EEAA02 /* OMDb */,
-				0A28636520DF55B700EEAA02 /* Fonts */,
 				0A28634F20DE4B6C00EEAA02 /* Products */,
 				C55B230680049DD62F66E4F9 /* Pods */,
 				7BC83C4F9888B7644800D622 /* Frameworks */,
@@ -72,10 +77,12 @@
 		0A28635020DE4B6C00EEAA02 /* OMDb */ = {
 			isa = PBXGroup;
 			children = (
-				0AAC720B20E93C0000EC36A9 /* Controller */,
 				0A28635120DE4B6C00EEAA02 /* AppDelegate.swift */,
+				0AAC721020EDF43800EC36A9 /* View */,
+				0AAC720B20E93C0000EC36A9 /* Controller */,
+				0A28636520DF55B700EEAA02 /* Fonts */,
+				0AA8326B20EF3ED3005472E0 /* Utilities */,
 				0A28635820DE4B7200EEAA02 /* Assets.xcassets */,
-				0A28635520DE4B6D00EEAA02 /* Main.storyboard */,
 				0A28635A20DE4B7200EEAA02 /* LaunchScreen.storyboard */,
 				0A28635D20DE4B7200EEAA02 /* Info.plist */,
 			);
@@ -85,10 +92,19 @@
 		0A28636520DF55B700EEAA02 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				0A28636420DF55A500EEAA02 /* Montserrat-Bold.ttf */,
-				0A28636320DF55A500EEAA02 /* Montserrat-Regular.ttf */,
+				0AAC721720EF364E00EC36A9 /* Montserrat-Bold.ttf */,
+				0AAC721820EF364F00EC36A9 /* Montserrat-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0AA8326B20EF3ED3005472E0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0AAC721320EE08BC00EC36A9 /* CustomTextField.swift */,
+				0AA8326C20EF3EF6005472E0 /* Connectivity.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		0AAC720B20E93C0000EC36A9 /* Controller */ = {
@@ -101,6 +117,14 @@
 				0AAC720E20EB7E4000EC36A9 /* DetailsTableViewCell.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		0AAC721020EDF43800EC36A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A28635520DE4B6D00EEAA02 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7BC83C4F9888B7644800D622 /* Frameworks */ = {
@@ -180,8 +204,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AAC721920EF365000EC36A9 /* Montserrat-Bold.ttf in Resources */,
 				0A28635C20DE4B7200EEAA02 /* LaunchScreen.storyboard in Resources */,
 				0A28635920DE4B7200EEAA02 /* Assets.xcassets in Resources */,
+				0AAC721A20EF365000EC36A9 /* Montserrat-Regular.ttf in Resources */,
 				0A28635720DE4B6D00EEAA02 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,9 +260,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AAC721420EE08BC00EC36A9 /* CustomTextField.swift in Sources */,
 				0AAC720F20EB7E4000EC36A9 /* DetailsTableViewCell.swift in Sources */,
 				0A28635420DE4B6C00EEAA02 /* SearchViewController.swift in Sources */,
 				0A28635220DE4B6C00EEAA02 /* AppDelegate.swift in Sources */,
+				0AA8326D20EF3EF6005472E0 /* Connectivity.swift in Sources */,
 				0AAC720820E93BE600EC36A9 /* ListViewController.swift in Sources */,
 				0AAC720A20E93BF700EC36A9 /* DetailsViewController.swift in Sources */,
 				0AAC720D20E9ED4700EC36A9 /* ListTableViewCell.swift in Sources */,

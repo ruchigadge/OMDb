@@ -27,7 +27,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         listView.reloadData()
     }
 
-    //MARK:- Tableview Datasourse Methods
+    //MARK:- Tableview Datasource Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.itemList.count
@@ -35,10 +35,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ListTableViewCell
-//        print("hey", self.itemList.object(at: indexPath.row) as! NSDictionary)
        
         if let title = (self.itemList.object(at: indexPath.row) as! NSDictionary).object(forKey: "Title") as? String {
-            cell.title.text = title//"blade"//(self.itemList.object(at: indexPath.row) as? NSDictionary)?.object(forKey: "Title") as? String
+            cell.title.text = title
         }
 
         if let year = (self.itemList.object(at: indexPath.row) as! NSDictionary).object(forKey: "Year") as? String {
@@ -46,12 +45,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         if let imageURL = (self.itemList.object(at: indexPath.row) as! NSDictionary).object(forKey: "Poster") as? String {
-//            print("log4", imageURL)
+
             cell.posterImage.setImage(from: URL(string: imageURL)!, withPlaceholder: UIImage(named: "Star"))
         }
-        
-//        cell.title.text = "Ruchi"
-//        cell.year.text = "1991"
         
         return cell
     }
@@ -62,13 +58,15 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        vc.movieTitle = (self.itemList.object(at: indexPath.row) as! NSDictionary).object(forKey: "Title") as! String
+        vc.imdbId = (self.itemList.object(at: indexPath.row) as! NSDictionary).object(forKey: "imdbID") as! String
         self.present(vc, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    //MARK: - Back button pressed
     
     @IBAction func backPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -82,12 +80,9 @@ extension UIImageView {
     func setImage(from url: URL, withPlaceholder placeholder: UIImage? = nil) {
         self.image = placeholder
         URLSession.shared.dataTask(with: url) { data,_,_ in
-//            print("Log1", data as Any)
             if let data = data {
                 let image = UIImage(data: data)
-//                print("log2")
                 DispatchQueue.main.async {
-//                    print("log3")
                     self.image = image
                 }
             }

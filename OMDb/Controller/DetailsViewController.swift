@@ -14,21 +14,29 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var detailsTableView: UITableView!
     
-    var movieTitle = String()
+    var imdbId = String()
     var detailsDictionary = NSDictionary()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(movieTitle)
+        print(imdbId)
         detailsTableView.delegate = self
         detailsTableView.dataSource = self
         
-        let params : [String:String] = ["apikey": API_KEY,"t": movieTitle]
-        getDetails(url: BASE_URL, parameters: params)
-        
+        let params : [String:String] = ["apikey": API_KEY,"i": imdbId]
+        if Connectivity.isConnectedToInternet {
+            getDetails(url: BASE_URL, parameters: params)
+        }else {
+            let alert = UIAlertController(title: "", message: "Please check your network connection.", preferredStyle: .alert)
+            let hideAlert = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alert.addAction(hideAlert)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
+    
+    //MARK:- Tableview Datasource Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
@@ -40,6 +48,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: DetailsTableViewCell!
+        cell = tableView.dequeueReusableCell(withIdentifier: "cell1") as! DetailsTableViewCell
         
         if detailsDictionary.count > 0 {
             if indexPath.section == 0 {
@@ -56,7 +65,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if let posterUrl = detailsDictionary.value(forKey: "Poster") as? String {
                     cell.posterImageView.setImage(from: URL(string: posterUrl)!, withPlaceholder: UIImage(named: "Star"))
                 }
-                
+
                 if let rating = detailsDictionary.value(forKey: "imdbRating") as? String {
                     cell.rating.text = "\(rating)/10"
                 }
@@ -103,27 +112,57 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return UITableViewAutomaticDimension
     }
     
+    //MARK: - Back button pressed
     
     @IBAction func backPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK: - Networking
+    
     func getDetails(url: String, parameters:[String:String]) {
-        
+        let sv = UIViewController.displaySpinner(onView: self.view)
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
-//            print(response)
+
             if response.result.isSuccess {
+                UIViewController.removeSpinner(spinner: sv)
                 let detailJSON = JSON(response.result.value as Any)
                 print(detailJSON)
                 if let tempResult = detailJSON.dictionaryObject {
                     self.detailsDictionary = tempResult as NSDictionary
-                    print("Log1", tempResult)
                     self.detailsTableView.reloadData()
                 }
             }else{
+                UIViewController.removeSpinner(spinner: sv)
                 print("Error \(String(describing: response.result.error))")
             }
         }
     }
-
+    
 }
+
+//MARK: - Activity Indicator
+
+extension UIViewController {
+    class func displaySpinner(onView : UIView) -> UIView {
+        
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        return spinnerView
+    }
+    
+    class func removeSpinner(spinner :UIView) {
+        DispatchQueue.main.async {
+            spinner.removeFromSuperview()
+        }
+    }
+}
+
